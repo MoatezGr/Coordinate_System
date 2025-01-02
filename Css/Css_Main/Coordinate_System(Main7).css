@@ -1,0 +1,132 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #474B4F;
+    max-width: 100%;
+    overflow: hidden
+}
+
+.Square_1{
+  position: absolute;
+  height: 150%;
+  width: 200%;
+  background-color: #222629;
+  rotate: -45deg;
+  right: 30%;
+  bottom: 40%;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.Square_2{
+    position: absolute;
+    height: 150%;
+    width: 200%;
+    background-color: #222629;
+    rotate: -45deg;
+    left: 30%;
+    top: 40%;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+.Start_Button{
+    position: absolute;
+    background-color: transparent;
+    color: #fcfcfc;
+    height: 40px;
+    width: 100px;
+    top: 50%;
+    left: 37%;
+    border-radius: 12px;
+    border-color: rgb(0, 0, 0);
+    border-style: dashed;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+img{
+  position: absolute;
+  top: 52%;
+  left: 46%;
+}
+
+.Start_Button:hover{
+  cursor: pointer;
+}
+
+
+                 /* * KeyFrame Animation * */
+
+@keyframes Square_1_MouseEnter {
+    from{
+      right: 30%;
+    }
+    to{
+      right: 40%;
+    }
+}
+
+@keyframes Square_2_MouseEnter {
+    from{
+      left: 30%;
+    }
+    to{
+      left: 40%;
+    }
+}
+
+@keyframes Square_1_MouseOut {
+    from{
+      right: 40%;
+    }
+    to{
+      right: 30%;
+    }
+}
+
+@keyframes Square_2_MouseOut {
+    from{
+      left: 40%;
+    }
+    to{
+      left: 30%;
+    }
+}
+
+@keyframes Square_1_Button_Clicked{
+  from{
+    right: 40%;
+  }
+  to{
+    right: -20%;
+  }
+}
+
+@keyframes  Square_2_Button_Clicked{
+  from{
+    left: 40%;
+  }
+  to{
+    left: -20%;
+  }
+}
+
+@keyframes Meteor_Animation{
+  from{
+    left: -20px;
+  }to{
+    left: 100%;
+  }
+}
+
+@keyframes Start_Button_Animation{
+  from{
+    opacity: 100%;
+  }to{
+    opacity: 0%;
+  }
+}

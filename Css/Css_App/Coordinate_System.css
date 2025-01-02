@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #222629;
+}
+
+.Study_Timer{
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    color: white;
+}
+
+.Study_Timer_sec{
+    position: absolute;
+    top: 44.1%;
+    right: 14.7%;
+    color: white;
+}
+
+.button_start{
+    position: absolute;
+    visibility: visible;
+    height: 30px;
+    width: 60px;
+    top: 51%;
+    right: 12.5%;
+    border-radius: 10px;
+}
+
+.button_finish{
+    position: absolute;
+    visibility: hidden;
+    height: 30px;
+    width: 60px;
+    top: 51%;
+    right: 12.5%;
+    border-radius: 10px;
+}
+
+.TimeOut{
+    position: absolute;
+    visibility: hidden;
+    background-color: transparent;
+    right: 7.5%;
+    top: 44.7%;
+    height: 12px;
+    width: 12px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    border-top-color: #61892F;
+    border-radius: 90px;
+    animation-duration: 1.5s;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+}
+
+.Reset_button{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    visibility: hidden;
+}
+
+
+@keyframes TimeOut_Animation{
+    from{
+        rotate: 0deg;
+    }to{
+        rotate: 360deg;
+    }
+}

@@ -289,21 +289,21 @@ if (Something_In_Diagonal === true) {
         IntervalID = setInterval(() => {Study_Timer_Function()}, 1000)
         
         Timer_Mode = true
-        button_finish.style.visibility = "visible"
-        button_start.style.visibility = "hidden"
+        button_finish.style.display = "block"
+        button_start.style.display = "none"
         TimeOut.style.borderTopColor = localStorage.getItem("Second_Color")
         TimeOut.style.animationName = "TimeOut_Animation"
         TimeOut.style.animationPlayState = "running"
-        TimeOut.style.visibility = "visible"
+        TimeOut.style.display = "block"
     }
 
     button_finish.onclick = function () {
         if (days <= 7) {  
             Timer_Mode = false
             TimeOut.style.animationPlayState = "stop"
-            TimeOut.style.visibility = "hidden"
-            button_finish.style.visibility = "hidden"
-            button_start.style.visibility = "visible"
+            TimeOut.style.display = "none"
+            button_finish.style.display = "none"
+            button_start.style.display = "block"
 
             Study_Time_Result = parseFloat(hours + (min / 100))
             Create_New_Point()

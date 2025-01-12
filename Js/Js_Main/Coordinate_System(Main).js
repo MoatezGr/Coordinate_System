@@ -13,7 +13,7 @@
         function Recover_WebPage_Colors() {
             document.body.style.background = localStorage.getItem("Second_Color")
             Start_Button.style.color = localStorage.getItem("Text_Color")
-            Start_Button.style.borderColor = localStorage.getItem("First_Color")
+            Start_Button.style.borderColor = localStorage.getItem("Text_Color")
         }
                                 
         function Meteor_Animation(){
@@ -37,8 +37,10 @@
                 Meteor.style.animationFillMode = "forwards"
                 Meteor.style.animationName = "Meteor_Animation"
                 Meteor_div.appendChild(Meteor)
-                
 
+                setTimeout(() => {
+                    Meteor.style.visibility = "hidden"
+                }, 4000 + (Random_Delay * 1000));
                 
             }, 100);
         }

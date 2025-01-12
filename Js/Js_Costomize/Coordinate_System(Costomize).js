@@ -103,7 +103,7 @@
             localStorage.setItem("Second_Color" , Second_Color)
             localStorage.setItem("Text_Color" , Text_Color)
             
-            location.assign("./Coordinate_System(Main).html")
+            location.assign("./index.html")
         }
         }
 
@@ -117,7 +117,7 @@
                 localStorage.setItem("Second_Color" , Second_Color)
                 localStorage.setItem("Text_Color" , Text_Color)
 
-                location.assign("./Coordinate_System(Main).html")    
+                location.assign("./index.html")    
             }
         }
 
@@ -131,7 +131,7 @@
                 localStorage.setItem("Second_Color" , Second_Color)
                 localStorage.setItem("Text_Color" , Text_Color)
                 
-                location.assign("./Coordinate_System(Main).html")
+                location.assign("./index.html")
             }
         }
     }
@@ -193,7 +193,7 @@
             localStorage.setItem("Second_Color",Second_Color_Input.value)
             localStorage.setItem("Text_Color",Text_Color_Input.value)
     
-            location.assign("./Coordinate_System(Main).html")
+            location.assign("./index.html")
         }
     }
 

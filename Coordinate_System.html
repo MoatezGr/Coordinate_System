@@ -3,27 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Css/Css_App/Coordinate_System.css">
-    <link rel="icon" href="./Img(2)/CoordinateIcon.png">
+    <link rel="stylesheet" media="screen and (min-width: 660px)" href="./Css/Css_App/Coordinate_System(TabletAndPc).css">
+    <link rel="stylesheet" media="screen and (max-width: 660px)" href="./Css/Css_App/Coordinate_System(Mobile).css">
+    <link rel="icon" href="./Css/Imgs/CoordinateIcon.png">
     <title>Coodinate_System</title>
 </head>
 <body>
-    <div id="Plan_div"></div>
+    
+    
 
-    <div class="Timer_div">
-        <h2 class="Study_Timer" id="Study_Timer">0 h : 0 m</h2>
-        <div class="TimeOut" id="TimeOut"></div>
-        <h4 class="Study_Timer_sec" id="Study_Timer_sec">0 s</h4>
-        <input class="button_finish" id="button_finish" type="submit" value="Stop">
-        <input class="button_start" id="button_start" type="submit" value="Start">
- 
+    <div class="First_Zone">
+        <div class="Timer_div">
+            <h2 class="Study_Timer" id="Study_Timer">0 h : 0 m</h2>
+            <div class="TimeOut" id="TimeOut"></div>
+            <h4 class="Study_Timer_sec" id="Study_Timer_sec">0 s</h4>
+            <input class="button_finish" id="button_finish" type="submit" value="Stop">
+            <input class="button_start" id="button_start" type="submit" value="Start">
+        </div>    
+        <div class="Study_Final_Result" id="Study_Final_Result">
+            <div class="Hours_Study_In_Week" id="Hours_Study_In_Week"></div>
+            <div class="Rate" id="Rate"></div>
+            <div class="Loading" id="Loading"></div>
+        </div>
     </div>
 
-
-    <div>
-         <input class="Reset_button" id="Reset_button" type="button" value="Reset The LocalStorage">
+    <div class="Second_Zone" id="Second_Zone">
+        <div class="Plan_div" id="Plan_div"></div>
+        <h2 class="Title_Of_Second_Zone" id="Title_Of_Second_Zone">My Coordinate System</h2>
     </div>
 
+    <div class="Third_Zone" id="Third_Zone">
+        <h2 id="Title_Of_Third_Zone">My Table Rotine</h2>
+        <h5 id="Soon_Second_Zone"> / Soon In Version 2</h5>
+    </div>
 
 
 

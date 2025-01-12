@@ -6,6 +6,13 @@
         let button_start = document.getElementById("button_start")
         let TimeOut = document.getElementById("TimeOut")
         let Reset_button = document.getElementById("Reset_button")
+        let Study_Final_Result = document.getElementById("Study_Final_Result")
+        let Rate = document.getElementById("Rate")
+        let Title_Of_Second_Zone = document.getElementById("Title_Of_Second_Zone")
+        let Second_Zone = document.getElementById("Second_Zone")
+        let Title_Of_Third_Zone = document.getElementById("Title_Of_Third_Zone")
+        let Soon_Second_Zone = document.getElementById("Soon_Second_Zone")
+        let Loading = document.getElementById("Loading")
         
                                 //-------------Var-------------//
         localStorage.setItem("First_Point", "1")
@@ -13,22 +20,166 @@
 
         let Something_In_Diagonal = false
         let Timer_Mode = false
-        let Multiply_Numbers = 40;
+        let Total_Study_Hours = 0;
+        let Multiply_Numbers = 28;
+        let c = 0
+        let rc = 0
         let i = 0
         let days = 0
         let sec = 0
-        let min = 0
+        let min = 33
         let hours = 0
+        let minute ;
         let IntervalID;
+        let IntervalID2;
+        let IntervalID3;
+        let IntervalID4;
         let Study_Time_Result;
+        let color;
+        let num_color ;
                                 //?-------------Arrays-------------//
         let ST = [0]
                                 //?-------------Object-------------//
         Coordinate = {}
         Diagonal_Obj = {}
+        Study_Time_Spend = {}
                                 //?-------------Functions-------------//
+        function Display_Study_Result() {
+            if(days >= 7){
+                Loading.style.borderTopColor = localStorage.getItem("Second_Color")
+                Loading.style.animationName = "TimeOut_Animation"
+                Loading.style.animationPlayState = "stop"
+                Loading.style.display = "none"
+                Study_Result()
+                console.warn("This is your coordinate systeme for this week");
+
+                clearInterval(IntervalID4)
+            }
+        }
+        function Recover_Line_Color_By_MouseLeave() {
+            for (let i = 0; i <= 7; i++) {
+                document.getElementById("Line" + i).style.backgroundColor = localStorage.getItem("Second_Color")
+            }
+        }
+        function Line_Color_animation() {
+            console.log(`The var c is ${c}`);
+            
+            if (c <= 7) {
+                if (num_color == 1) {               
+                    color = "white"
+                }else if(num_color == 2){
+                    color = "green"
+                }else{
+                    color = "lightgreen"
+                }
+                console.log(`your color is ${color}`);
+                
+                document.getElementById("Line" + c).style.backgroundColor = color
+            
+                c++
+            }else if(c === 8){
+                    clearInterval(IntervalID2)
+            }
+
+        }
+        function Study_Result() {
+            for (let i = 1; i <= 7; i++) {
+                minute = JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + i] - (parseInt(JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + i])) 
+                console.log(minute);
+                console.log(Total_Study_Hours);
+                console.log(parseInt(minute) * 60);
+                
+                
+                    
+                    let Study_Result_Elements = document.createElement("p")
+                    Study_Result_Elements.innerHTML = `--> Day ${i}, you study for : ${parseInt(JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + i])} h : ${parseInt(minute * 60)} m`
+                    Study_Result_Elements.style.marginTop = "10px"
+                    Study_Result_Elements.style.color = localStorage.getItem("Text_Color")
+                    Study_Final_Result.appendChild(Study_Result_Elements)
+                    
+                    if (i == 1) {
+                        Total_Study_Hours = parseFloat(Study_Time_Spend["study_time_spend" + i])
+                        console.log(`the typeof total_study_hours is ${typeof(Total_Study_Hours)} First`);
+                        
+                    }else{
+                        Total_Study_Hours += parseFloat(Study_Time_Spend["study_time_spend" + i])
+                        console.log(`the typeof total_study_hours is ${typeof(Total_Study_Hours)} Second`);
+                    }
+            }
+
+            if (Total_Study_Hours <= 1.75) {
+                let Rate_Element = document.createElement("h1")
+                Rate_Element.style.width = "auto"
+                Rate_Element.style.height = "auto"
+                Rate_Element.style.marginLeft = "20px"
+                Rate_Element.style.marginTop = "13px"
+                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.innerHTML = "Week"
+                Rate.appendChild(Rate_Element)
+            }else if (Total_Study_Hours <= 3.5 && Total_Study_Hours >= 1.75) {
+                let Rate_Element = document.createElement("h1")
+                Rate_Element.style.width = "auto"
+                Rate_Element.style.height = "auto"
+                Rate_Element.style.marginLeft = "20px"
+                Rate_Element.style.marginTop = "13px"
+                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.innerHTML = "Close to average"
+                Rate.appendChild(Rate_Element)
+            }else if (Total_Study_Hours <= 7 && Total_Study_Hours >= 3.5) {
+                let Rate_Element = document.createElement("h1")
+                Rate_Element.style.width = "auto"
+                Rate_Element.style.height = "auto"
+                Rate_Element.style.marginLeft = "20px"
+                Rate_Element.style.marginTop = "13px"
+                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.innerHTML = "Average"
+                Rate.appendChild(Rate_Element)
+            }else if (Total_Study_Hours <= 14 && Total_Study_Hours >= 7) {
+                let Rate_Element = document.createElement("h1")
+                Rate_Element.style.width = "auto"
+                Rate_Element.style.height = "auto"
+                Rate_Element.style.marginLeft = "20px"
+                Rate_Element.style.marginTop = "13px"
+                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.innerHTML = "Nice"
+                Rate.appendChild(Rate_Element)
+            }else if (Total_Study_Hours <= 21 && Total_Study_Hours >= 14) {
+                let Rate_Element = document.createElement("h1")
+                Rate_Element.style.width = "auto"
+                Rate_Element.style.height = "auto"
+                Rate_Element.style.marginLeft = "20px"
+                Rate_Element.style.marginTop = "13px"
+                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.innerHTML = "Excellent"
+                Rate.appendChild(Rate_Element)
+            }else if (Total_Study_Hours <= 28 && Total_Study_Hours >= 21) {
+                let Rate_Element = document.createElement("h1")
+                Rate_Element.style.width = "auto"
+                Rate_Element.style.height = "auto"
+                Rate_Element.style.marginLeft = "20px"
+                Rate_Element.style.marginTop = "13px"
+                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.innerHTML = "Very hardworking"
+                Rate.appendChild(Rate_Element)
+            }else if(Total_Study_Hours > 28){
+                let Rate_Element = document.createElement("h1")
+                Rate_Element.style.width = "auto"
+                Rate_Element.style.height = "auto"
+                Rate_Element.style.marginLeft = "20px"
+                Rate_Element.style.marginTop = "13px"
+                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.innerHTML = "WoW!! Very hardworking"
+                Rate.appendChild(Rate_Element)
+            }
+
+            console.log(Total_Study_Hours);
+            
+        }
         function Recover_WebPage_Colors() {
             document.body.style.background = localStorage.getItem("First_Color")
+            Title_Of_Second_Zone.style.color = localStorage.getItem("Text_Color")
+            Title_Of_Third_Zone.style.color = localStorage.getItem("Text_Color")
+            Soon_Second_Zone.style.color = localStorage.getItem("Text_Color")
         }
         function Create_Coordinate_System_Plan() {
             for (let p = 1; p <= 7; p++) {
@@ -72,25 +223,14 @@
                 Study_Timer_sec.innerHTML = sec + " s"
             
         }
-        function Reset_LocalStorage(){
-            Reset_button.onclick = function () {
-                localStorage.removeItem("Coordinate") 
-                localStorage.removeItem("Diagonal") 
-                localStorage.removeItem("ST") 
-                localStorage.removeItem("First_Point") 
-                localStorage.removeItem("First_Color") 
-                localStorage.removeItem("Second_Color") 
-                localStorage.removeItem("Text_Color") 
-                location.reload();
-                console.warn("LocalStorage Reseted...");
-            }
-        }
         function Something_In_Diagonal_Function() {
             if (JSON.parse(localStorage.getItem("Diagonal")) === null) {
                 Something_In_Diagonal = false
             }else if(Object.values(JSON.parse(localStorage.getItem("Diagonal"))).length >= 0){
                 Something_In_Diagonal = true
             }
+            
+
         }
         function Calcul_Distance_And_Angle() {
                     if (i >= 1) {
@@ -172,10 +312,21 @@
 
                                 //?-------------CODE-------------//
 
-                        //!Recovery The Last Coordanate Systeme//
+                        //!Recovery The Last Coordanate Systeme//                    
     Recover_WebPage_Colors()
     Create_Coordinate_System_Plan()
     Something_In_Diagonal_Function()
+
+    window.onload = function () {
+        if (days >= 7) {
+            Loading.style.borderTopColor = localStorage.getItem("Second_Color")
+            Loading.style.animationName = "TimeOut_Animation"
+            Loading.style.animationPlayState = "running"
+            Loading.style.display = "block"
+        }
+    }
+    
+    IntervalID4 = setInterval(() => {Display_Study_Result()}, 2000);
 
 if (Something_In_Diagonal === true) {
     for (let j = 0; j <= Object.values(JSON.parse(localStorage.getItem("Diagonal"))).length; j++) {
@@ -248,7 +399,8 @@ if (Something_In_Diagonal === true) {
             ST = JSON.parse(localStorage.getItem("ST")) 
             i = Object.values(JSON.parse(localStorage.getItem("Diagonal"))).length 
             days = Object.values(JSON.parse(localStorage.getItem("Diagonal"))).length 
-
+            Study_Time_Spend = JSON.parse(localStorage.getItem("study_time_spend"))
+            
             Something_In_Diagonal = false
 
             console.log(`In The Object Of Coordinate : ${Coordinate}`);
@@ -261,6 +413,8 @@ if (Something_In_Diagonal === true) {
 }
 
                         //!Code for Create An Coordinate System//
+    console.log(days);
+                        
              
     if (i === 0) {
                         //*Add Img To Html With Property*// 
@@ -286,28 +440,41 @@ if (Something_In_Diagonal === true) {
         }
 
     button_start.onclick = function () {
-        IntervalID = setInterval(() => {Study_Timer_Function()}, 1000)
         
-        Timer_Mode = true
-        button_finish.style.display = "block"
-        button_start.style.display = "none"
-        TimeOut.style.borderTopColor = localStorage.getItem("Second_Color")
-        TimeOut.style.animationName = "TimeOut_Animation"
-        TimeOut.style.animationPlayState = "running"
-        TimeOut.style.display = "block"
+        if (days < 7) {
+            IntervalID = setInterval(() => {Study_Timer_Function()}, 1000)
+        
+            Timer_Mode = true
+            button_finish.style.display = "block"
+            button_start.style.display = "none"
+            TimeOut.style.borderTopColor = localStorage.getItem("Second_Color")
+            TimeOut.style.animationName = "TimeOut_Animation"
+            TimeOut.style.animationPlayState = "running"
+            TimeOut.style.display = "block"
+        }
     }
 
     button_finish.onclick = function () {
-        if (days <= 7) {  
             Timer_Mode = false
             TimeOut.style.animationPlayState = "stop"
             TimeOut.style.display = "none"
             button_finish.style.display = "none"
             button_start.style.display = "block"
+            
 
-            Study_Time_Result = parseFloat(hours + (min / 100))
+            Study_Time_Spend["study_time_spend" + (i + 1)] = parseFloat(hours + (min / 60)).toFixed(2)
+            localStorage.setItem("study_time_spend",JSON.stringify(Study_Time_Spend))               
+            
+            Study_Time_Result = parseFloat(hours + (min / 60)).toFixed(2)
             Create_New_Point()
             Calcul_Distance_And_Angle()
+
+            if (days >= 7) {
+                Loading.style.borderTopColor = localStorage.getItem("Second_Color")
+                Loading.style.animationName = "TimeOut_Animation"
+                Loading.style.animationPlayState = "running"
+                Loading.style.display = "block"
+            }
 
             sec = 0
             min = 0
@@ -315,10 +482,21 @@ if (Something_In_Diagonal === true) {
             Study_Timer.innerHTML =  hours + " h : " + min + " m"
             Study_Timer_sec.innerHTML = sec + " s"
             clearInterval(IntervalID)
-        }else{
-            console.warn("This is your coordinate systeme for this week");
+    }
+
+    Second_Zone.onmouseenter = function () {
+        num_color = Math.floor((Math.random() * 3) + 1);
+        c = 0
+        if (days >= 7) {
+            IntervalID2 =  setInterval(() => {Line_Color_animation()}, 100);
         }
     }
- 
-                        //!Reset The LocalStorage By Button//
-    Reset_LocalStorage()
+
+    Second_Zone.onmouseout = function () {
+        if (days >= 7) {
+            clearInterval(IntervalID2)
+            Recover_Line_Color_By_MouseLeave() 
+        }
+    }
+console.log(days);
+

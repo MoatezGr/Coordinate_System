@@ -27,7 +27,7 @@
         let i = 0
         let days = 0
         let sec = 0
-        let min = 33
+        let min = 0
         let hours = 0
         let minute ;
         let IntervalID;

@@ -13,41 +13,7 @@ body{
     overflow-x: hidden;
 
     height: 100%;
-
-    display: grid;
-    grid-template-columns: 30% 40% 30%;
-    grid-template-rows: 40% 20% 40%;
 }
-
-.Start_Button{
-    background-color: transparent;
-    color: #fcfcfc;
-
-    font-size: large;
-    height: 120px;
-    width: 190px;
-
-    border-radius: 20px;
-    border-color: rgb(0, 0, 0);
-    border-style: dashed;
-}
-
-.Start_Button_div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
-
-.Start_Button:hover{
-  cursor: pointer;
-}
-
-
 
 
                  /* * KeyFrame Animation * */

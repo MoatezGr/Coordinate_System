@@ -1,7 +1,4 @@
                                 //-------------Html Elements-------------//
-        let Square_1 = document.getElementById("Square_1") 
-        let Square_2 = document.getElementById("Square_2") 
-        let Start_Button = document.getElementById("Start_Button") 
         let Meteor_div = document.getElementById("Meteor_div") 
 
 
@@ -12,8 +9,6 @@
                                 //-------------FUNCTIONS-------------//    
         function Recover_WebPage_Colors() {
             document.body.style.background = localStorage.getItem("Second_Color")
-            Start_Button.style.color = localStorage.getItem("Text_Color")
-            Start_Button.style.borderColor = localStorage.getItem("Text_Color")
         }
                                 
         function Meteor_Animation(){
@@ -52,9 +47,3 @@
         Recover_WebPage_Colors()                
         Meteor_Animation()
 
-
-
-        Start_Button.onclick = function () {
-            console.log("Clicked");
-            location.assign("./Coordinate_System.html")
-        }

@@ -1,6 +1,8 @@
 *{
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 html{
@@ -19,7 +21,14 @@ a{
   text-decoration: none;
 }
 
+.model{
+  width: 200px;
+  height: 200px;
+}
 
+canvas{
+  background-color: #474B4F;
+}
 
 
                  /* * KeyFrame Animation * */

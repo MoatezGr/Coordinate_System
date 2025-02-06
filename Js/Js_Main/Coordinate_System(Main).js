@@ -1,20 +1,16 @@
 
+                                //-------------IMPORT-------------//
 import * as THREE from "three";
 import WebGL from 'three/addons/capabilities/WebGL.js';
-import { GLTFLoader } from "three/examples/jsm/Addons.js";
+import { GLTFLoader, OrbitControls } from "three/examples/jsm/Addons.js";
 
                                 //-------------Html Elements-------------//
         let Meteor_div = document.getElementById("Meteor_div") 
-
+        let canvas = document.getElementById("canvas")
 
                                 //-------------VAR-------------//
-        let i = 0
-
 
                                 //-------------FUNCTIONS-------------//    
-        function Recover_WebPage_Colors() {
-            document.body.style.background = localStorage.getItem("Second_Color")
-        }
                                 
         function Meteor_Animation(){
             setInterval(() => {
@@ -45,48 +41,37 @@ import { GLTFLoader } from "three/examples/jsm/Addons.js";
             }, 100);
         }
         
-                                //-------------CODE-------------//
-        if (localStorage.getItem('First_Color') == null) {
-            location.assign("./Coordinate_System(Costomize).html")
-        } 
-        Recover_WebPage_Colors()                
+                                //-------------CODE-------------//               
         Meteor_Animation()
           
                                //-------------3D MODULE-------------//
 
-const canvas = document.getElementById("canvas")
-
-const renderer = new THREE.WebGLRenderer({alpha: true , canvas: canvas})
-renderer.setSize(window.innerWidth,window.innerHeight)
-
-
+const renderer = new THREE.WebGLRenderer({alpha: true , canvas : canvas})
+renderer.setSize(canvas.height * 2,canvas.width * 2)
 
 const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight)
-const light =new THREE.AmbientLight(0xffffff)
+const camera = new THREE.PerspectiveCamera(75,window.innerHeight/window.innerWidth)
+const light = new THREE.AmbientLight(0xffffff)
+const lightdirection = new THREE.DirectionalLight(0xffffff , 0.8)
+
+camera.position.set(0,1.7,1)
+camera.rotation.set(-0.9,0,0)
+
 scene.add(light)
-camera.position.z = 13
+scene.add(lightdirection)
+renderer.render(scene , camera)
 
-
-const loader = new GLTFLoader
-
-loader.load("cafe/scene.gltf", function (gltf) {
-    const cafe = gltf.scene
-    cafe.position.x = 0
-    cafe.position.y = -20
-    scene.add(cafe)
+const loader = new GLTFLoader()
+loader.load("fox/scene.gltf" , function ( gltf ) {
+    const fox = gltf.scene
+    scene.add(fox)
 
     function animate() {
         requestAnimationFrame(animate)
+        fox.rotation.y += 0.005
 
-        if (cafe.position.y <= -2) {
-            cafe.position.y += 0.2
-        }else{
-            cafe.rotation.y += 0.001
-        }
-
-        renderer.render(scene,camera)
+        renderer.render(scene , camera)
     }
+    animate()
 
-    animate()  
 })

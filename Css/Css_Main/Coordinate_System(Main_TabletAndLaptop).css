@@ -3,7 +3,12 @@
   padding: 0;
   overflow-y: hidden;
   overflow-x: hidden;
+
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-style:oblique;
 }
+
 
 html{
   width: 100%;
@@ -11,27 +16,71 @@ html{
 }
 
 body{
-    background-color: #474B4F;
-    overflow-x: hidden;
-
-    height: 100%;
+  background-color: darkslategray;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 1000px;
 }
 
-a{
+nav{
+  background-color: rgb(255, 243, 202);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav *{
+  margin-left: 15px;
+  margin-right: 15px;
   text-decoration: none;
 }
 
-.model{
-  width: 200px;
-  height: 200px;
+span{
+  color: rgb(194, 158, 91);
+}
+
+.container1{
+  margin-top: 50px;
+  margin-left: 50px;
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.textcontainer{
+  width: 50%;
+  height: 300px;
+}
+
+.textcontainer > p{
+  width: 100%;
+}
+
+.textcontainer > a{
+  margin-top: 10px;
+  padding: 10px;
+  text-decoration: none;
+  font-size: larger;
+  text-align: center;
+  background-color: azure;
+  border-radius: 10px;
 }
 
 canvas{
-  background-color: #474B4F;
+  width: 55%;
+  height: 100%;
+  z-index: 100;
 }
 
+canvas:hover{
+  pointer-events: visibleFill;
+}
 
-                 /* * KeyFrame Animation * */
 
 @keyframes Meteor_Animation{
   from{

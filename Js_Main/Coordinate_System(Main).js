@@ -18,7 +18,7 @@ import { GLTFLoader, OrbitControls } from "../node_modules/three/examples/jsm/Ad
                 let Meteor = document.createElement("div")
 
                 Meteor.style.position = "absolute"
-                Meteor.style.background = localStorage.getItem("Text_Color")
+                Meteor.style.background = "white"
                 Meteor.style.height = "5px"
                 Meteor.style.width = "5px"
                 Meteor.style.left = "-20px"

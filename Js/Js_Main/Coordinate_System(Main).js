@@ -34,10 +34,7 @@ import { GLTFLoader, OrbitControls } from "three/examples/jsm/Addons.js";
                 Meteor.style.animationName = "Meteor_Animation"
                 Meteor_div.appendChild(Meteor)
 
-                setTimeout(() => {
-                    Meteor.style.visibility = "hidden"
-                }, 4000 + (Random_Delay * 1000));
-                
+   
             }, 100);
         }
         
@@ -47,15 +44,15 @@ import { GLTFLoader, OrbitControls } from "three/examples/jsm/Addons.js";
                                //-------------3D MODULE-------------//
 
 const renderer = new THREE.WebGLRenderer({alpha: true , canvas : canvas})
-renderer.setSize(canvas.height * 2,canvas.width * 2)
+renderer.setSize(canvas.height * 2.5,canvas.width * 1.5)
 
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75,window.innerHeight/window.innerWidth)
 const light = new THREE.AmbientLight(0xffffff)
 const lightdirection = new THREE.DirectionalLight(0xffffff , 0.8)
 
-camera.position.set(0,1.7,1)
-camera.rotation.set(-0.9,0,0)
+camera.position.set(0,1.5,1.5)
+camera.rotation.set(-0.8,0,0)
 
 scene.add(light)
 scene.add(lightdirection)

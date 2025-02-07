@@ -1,12 +1,10 @@
 *{
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
   overflow-x: hidden;
 
-  font-family: "Exo 2", serif;
+  font-family: "Lexend Giga", serif;
   font-optical-sizing: auto;
-  font-style:oblique;
 }
 
 
@@ -17,9 +15,124 @@ html{
 
 body{
   background-color: darkslategray;
-  margin-left: 10px;
-  margin-right: 10px;
-  height: 1000px;
+}
+
+p,h2{
+  overflow-y: hidden;
+}
+
+.abselements *{
+  position: absolute;
+}
+
+.abselements > .system_update{
+  left: 0px;
+  top: 50%;
+  animation-name: system_update_animate;
+  visibility: hidden;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.abselements > .fire1{
+  left: 0px;
+  top: 20%;
+  visibility: hidden;
+  animation-name: fire1_animate;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.abselements > .fire2{
+  left: 0px;
+  top: 30%;
+  visibility: hidden;
+  animation-name: fire2_animate;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.abselements > .fire3{
+  left: 0px;
+  top: 70%;
+  visibility: hidden;
+  animation-name: fire3_animate;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.abselements > .pen1{
+  right: 0px;
+  top: 80%;
+  visibility: hidden;
+  animation-name: pen1_animate;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.abselements > .pen2{
+  right: 0px;
+  top: 64%;
+  visibility: hidden;
+  animation-name: pen2_animate;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.abselements > .timer1{
+  right: 0px;
+  top: 14%;
+  visibility: hidden;
+  animation-name: timer1_animate;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.abselements > .timer2{
+  right: 0px;
+  top: 30%;
+  visibility: hidden;
+  animation-name: timer2_animate;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.abselements > .timer3{
+  left: 0px;
+  top: 66%;
+  visibility: hidden;
+  animation-name: timer3_animate;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.abselements > .timer4{
+  left: 0px;
+  top: 85%;
+  visibility: hidden;
+  animation-name: timer4_animate;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 }
 
 nav{
@@ -31,6 +144,13 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 2px 5px 15px #c2b788;
+  visibility: hidden;
+  animation-name: opacity_animate;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 }
 
 nav *{
@@ -44,16 +164,21 @@ span{
 }
 
 .container1{
-  margin-top: 50px;
-  margin-left: 50px;
-  height: 500px;
+  margin-top: 110px;
+  margin-left: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  visibility: hidden;
+  animation-name: opacity_animate;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 }
 
 .textcontainer{
-  width: 50%;
+  width: 48%;
   height: 300px;
 }
 
@@ -69,11 +194,10 @@ span{
   text-align: center;
   background-color: azure;
   border-radius: 10px;
+  transition: box-shadow 0.4s;
 }
 
 canvas{
-  width: 55%;
-  height: 100%;
   z-index: 100;
 }
 
@@ -81,11 +205,197 @@ canvas:hover{
   pointer-events: visibleFill;
 }
 
+.container2{
+  overflow-y: hidden;
+  background-color: #d4cba0;
+  height: 460px;
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-rows: 25% 75%;
+}
+
+.container2 *{
+  margin-left: 20px;
+  visibility: hidden;
+  animation-name: opacity_animate;
+  animation-delay: 1s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.container2 > div{
+  overflow-y: hidden;
+  background-color: azure;
+  width: 290px;
+  height: 330px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 45% 35% 25%;
+  justify-items: center;
+  border-radius: 10px;
+  box-shadow: -7px 7px 10px #000000;
+  transition: transform 0.08s , filter 0.6s;
+  filter: blur(0px);
+}
+
+.container2 > div > img{
+  width: 180px;
+  height: 120px;
+  border-radius: 10px;
+}
+.container2 > div > p{
+  background-color: azure;
+}
+.container2 > div > a{
+  background-color: #d4cba0;
+  margin-right: 20px;
+  padding: 10px;
+  height: 50px;
+  text-decoration: none;
+  font-size: larger;
+  text-align: center;
+  border-radius: 10px;
+  transition: box-shadow 0.2s;
+}
+
+.container2 > h1{
+  margin: 25px;
+}
+
+
+.container2 > div:not(:hover){
+  transform: scale(0.9,0.9);
+  filter: blur(2.5px);
+}
+
+.container2 > div > a:hover{
+  box-shadow: 0px 0px 10px #c4a47c;
+}
+
+a:hover{
+  box-shadow: 1px 2px 10px #fff2e3;
+}
+
+
+
+                                /*! Animation Zone */
+
 
 @keyframes Meteor_Animation{
   from{
     left: -50px;
   }to{
     left: 100%;
+    visibility: hidden;
+  }
+}
+
+@keyframes opacity_animate {
+  0%{
+    visibility: visible;
+    opacity: 0;
+  }100%{
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes system_update_animate {
+  0%{
+    visibility: visible;
+    left: -10px;
+  }100%{
+    visibility: visible;
+    left: 50%;
+  }
+}
+
+@keyframes fire1_animate {
+  0%{
+    visibility: visible;
+    left: -10px;
+  }100%{
+    visibility: visible;
+    left: 80%;
+  }
+}
+
+@keyframes fire2_animate {
+  0%{
+    visibility: visible;
+    left: -10px;
+  }100%{
+    visibility: visible;
+    left: 65%;
+  }
+}
+
+@keyframes fire3_animate {
+  0%{
+    visibility: visible;
+    left: -10px;
+  }100%{
+    visibility: visible;
+    left: 20%;
+  }
+}
+
+@keyframes pen1_animate {
+  0%{
+    visibility: visible;
+    left: -10px;
+  }100%{
+    visibility: visible;
+    left: 72%;
+  }
+}
+
+@keyframes pen2_animate {
+  0%{
+    visibility: visible;
+    right: -10px;
+  }100%{
+    visibility: visible;
+    right: 40%;
+  }
+}
+
+@keyframes timer1_animate {
+  0%{
+    visibility: visible;
+    right: -10px;
+  }100%{
+    visibility: visible;
+    right: 90%;
+  }
+}
+
+@keyframes timer2_animate {
+  0%{
+    visibility: visible;
+    right: -10px;
+  }100%{
+    visibility: visible;
+    right: 57%;
+  }
+}
+
+@keyframes timer3_animate {
+  0%{
+    visibility: visible;
+    right: -10px;
+  }100%{
+    visibility: visible;
+    left: 8%;
+  }
+}
+
+@keyframes timer4_animate {
+  0%{
+    visibility: visible;
+    left: -10px;
+  }100%{
+    visibility: visible;
+    left: 19%;
   }
 }

@@ -245,6 +245,7 @@ canvas:hover{
 }
 .container2 > div > p{
   background-color: azure;
+  font-size: small;
 }
 .container2 > div > a{
   background-color: #d4cba0;

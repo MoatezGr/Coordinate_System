@@ -1,6 +1,6 @@
 
                                 //-------------IMPORT-------------//
-import * as THREE from "three";
+import * as THREE from "/node_modules/three";
 import WebGL from 'three/addons/capabilities/WebGL.js';
 import { GLTFLoader, OrbitControls } from "three/examples/jsm/Addons.js";
 

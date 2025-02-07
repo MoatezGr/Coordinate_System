@@ -1,6 +1,6 @@
 
                                 //-------------IMPORT-------------//
-import * as THREE from ".../node_modules/three";
+import * as THREE from "../node_modules/three";
 import { GLTFLoader, OrbitControls } from "../node_modules/three/examples/jsm/Addons.js";
 
                                 //-------------Html Elements-------------//

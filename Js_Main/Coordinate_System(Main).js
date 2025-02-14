@@ -1,7 +1,7 @@
 
                                 //-------------IMPORT-------------//
-import * as THREE from "../node_modules/three";
-import { GLTFLoader, OrbitControls } from "../node_modules/three/examples/jsm/Addons.js";
+import * as THREE from "/node_modules/three/build/three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
                                 //-------------Html Elements-------------//
         let Meteor_div = document.getElementById("Meteor_div") 

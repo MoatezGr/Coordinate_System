@@ -1,7 +1,4 @@
 
-                                //-------------IMPORT-------------//
-import * as THREE from "node_modules/three/src/Three.js";
-import { GLTFLoader } from "node_modules/three/examples/jsm/loaders/GLTFLoader.js";
 
                                 //-------------Html Elements-------------//
         let Meteor_div = document.getElementById("Meteor_div") 
@@ -39,35 +36,4 @@ import { GLTFLoader } from "node_modules/three/examples/jsm/loaders/GLTFLoader.j
         
                                 //-------------CODE-------------//               
         Meteor_Animation()
-          
-                               //-------------3D MODULE-------------//
-
-const renderer = new THREE.WebGLRenderer({alpha: true , canvas : canvas})
-renderer.setSize(canvas.height * 2.5,canvas.width * 1.5)
-
-const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera(75,window.innerHeight/window.innerWidth)
-const light = new THREE.AmbientLight(0xffffff)
-const lightdirection = new THREE.DirectionalLight(0xffffff , 0.8)
-
-camera.position.set(0,1.5,1.5)
-camera.rotation.set(-0.8,0,0)
-
-scene.add(light)
-scene.add(lightdirection)
-renderer.render(scene , camera)
-
-const loader = new GLTFLoader()
-loader.load("fox/scene.gltf" , function ( gltf ) {
-    const fox = gltf.scene
-    scene.add(fox)
-
-    function animate() {
-        requestAnimationFrame(animate)
-        fox.rotation.y += 0.005
-
-        renderer.render(scene , camera)
-    }
-    animate()
-
-})
+        

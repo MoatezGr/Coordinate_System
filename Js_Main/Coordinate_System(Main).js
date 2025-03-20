@@ -74,7 +74,8 @@
         }
 
         
-                                //-------------CODE-------------//               
+                                //-------------CODE-------------//       
+        location.reload()   
         Meteor_Animation()
         Colors_page_default()
         Costomize_color_Live()

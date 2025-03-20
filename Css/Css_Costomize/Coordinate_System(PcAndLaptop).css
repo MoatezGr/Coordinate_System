@@ -1,0 +1,538 @@
+*{
+    margin: 0;
+    margin-bottom: 10px;
+
+    font-family: "Lexend Giga", serif;
+    font-optical-sizing: auto;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: darkslategray;
+    overflow: hidden;
+
+}
+
+.babel_1{
+    position: absolute;
+    width: 450px;
+    height: 256px;
+    border-radius: 65% 35% 95% 5% / 71% 82% 18% 29% ;
+    background-color: rgb(255, 243, 202);
+    left: -80px;
+    bottom: -55px;
+    z-index: -1;
+}
+
+.babel_2{
+    position: absolute;
+    width: 250px;
+    height: 148px;
+    border-radius: 65% 35% 95% 5% / 71% 82% 18% 29% ;
+    background-color: rgb(255, 243, 202);
+    right: -30px;
+    bottom: -50px;
+    z-index: -1;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 50% 40%;
+}
+
+h2{
+    margin-left: 8px;
+    margin-top: 10px;
+}
+
+span{
+    color: rgb(194, 158, 91);
+}
+
+.costomize_main_div{
+    display: block;
+}
+
+.costomize_main{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%;
+}
+
+.fox_icon{
+    width: 230px;
+    height: 230px;
+    margin-right: 40%;
+    margin-left: 40%;
+}
+
+h1{
+    color: #d1d1d1;
+    margin-left: 40%;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;  
+}
+
+.content > .costomize_tools > img{
+    background-color: #ffffff27;
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 70px;
+    border-radius: 18px;
+    transition: scale 0.3s;
+}
+.content > .costomize_tools > img:hover{
+    cursor:pointer;
+    scale: 1.07;
+}
+
+.costomize_tools{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Packs{
+    visibility: hidden;
+}
+
+.cercle_1{
+    background-color: #d1d1d1;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 90px;
+    left: 10.5%;
+    top: 25%;
+    animation-name: cercle1_animation;
+    animation-delay: 0.5s;
+    animation-timing-function:ease-in;
+    animation-duration: 0.4s;
+    animation-direction:alternate;
+    animation-iteration-count: infinite;
+}
+
+.cercle_2{
+    background-color: rgb(194, 158, 91);
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 90px;
+    left: 18%;
+    top: 35%;
+    animation-name: cercle2_animation;
+    animation-delay: 0.7s;
+    animation-timing-function:ease-in;
+    animation-duration: 0.4s;
+    animation-direction:alternate;
+    animation-iteration-count: infinite;
+}
+
+.cercle_3{
+    background-color: rgb(194, 158, 91);
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 90px;
+    left: 55%;
+    top: 55.5%;
+    animation-name: cercle3_animation;
+    animation-delay: 1s;
+    animation-timing-function:ease-in;
+    animation-duration: 0.4s;
+    animation-direction:alternate;
+    animation-iteration-count: infinite;
+}
+
+.cercle_4{
+    background-color: #d1d1d1;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 90px;
+    left: 80.5%;
+    top: 22%;
+    animation-name: cercle4_animation;
+    animation-delay: 1.2s;
+    animation-timing-function:ease-in;
+    animation-duration: 0.5s;
+    animation-direction:alternate;
+    animation-iteration-count: infinite;
+}
+
+.costomize_tools_controler{
+    transition:border-radius 1s;
+    background-color: #def2f1ab;
+    height: 320px;
+    width: 97%;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    margin-bottom: 0;
+    z-index: 100;
+    border-radius:20px;
+}
+
+.combo_color_div1{
+    margin-top: 30px;
+    margin-bottom: 100px;
+    margin-left: 10px;
+    transition: scale 0.5s;
+}
+
+.combo_color_div1:hover{
+    scale: 1.02;
+    cursor: pointer;
+}
+
+.first_color{
+    background-color: #9a7787;
+    color: #9a7787;
+    height: 70px;
+    width: 40px;
+    border-radius: 10px 0px 0px 10px;
+    margin: 0;
+}
+
+.second_color{
+    background-color: #E4AFB0;
+    color: #E4AFB0;
+    height: 70px;
+    width: 40px;
+    
+    margin: 0;
+}
+
+.third_color{
+    background-color: #FED7BF;
+    color: #FED7BF;
+    height: 70px;
+    width: 40px;
+    border-radius: 0px 10px 10px 0px;
+    margin: 0;
+}
+
+.combo_color_div2{
+    margin-bottom: 100px;
+    margin-left: 10px;
+    transition: scale 0.5s;
+}
+
+.combo_color_div2:hover{
+    scale: 1.02;
+    cursor: pointer;
+}
+
+.first_color2{
+    background-color: #533638;
+    color: #533638;
+    height: 70px;
+    width: 40px;
+    border-radius: 10px 0px 0px 10px;
+    margin: 0;
+}
+
+.second_color2{
+    background-color: #F7B9C4;
+    color: #F7B9C4;
+    height: 70px;
+    width: 40px;
+}
+
+.third_color2{
+    background-color: #F5EDEC;
+    color: #F5EDEC;
+    height: 70px;
+    width: 40px;
+    border-radius: 0px 10px 10px 0px;
+    margin: 0;
+}
+
+.combo_color_div3{
+    margin-left: 10px;
+    transition: scale 0.5s;
+}
+
+.combo_color_div3:hover{
+    scale: 1.02;
+    cursor: pointer;
+}
+
+.first_color3{
+    background-color: #2B7A78;
+    color: #2B7A78;
+    height: 70px;
+    width: 40px;
+    border-radius: 10px 0px 0px 10px;
+    margin: 0;
+}
+
+.second_color3{
+    background-color: #3AAFA9;
+    color: #3AAFA9;
+    height: 70px;
+    width: 40px;
+    
+    margin: 0;
+}
+
+.third_color3{
+    background-color: #DEF2F1;
+    color: #DEF2F1;
+    height: 70px;
+    width: 40px;
+    border-radius: 0px 10px 10px 0px;
+    margin: 0;
+}
+
+.combo_color_botton{
+    background-color: transparent;
+    height: 70px;
+    display: none;
+    border-radius: 80px;
+    animation-name: bordercolor_animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    transition: background-color 0.4s;
+}
+
+.combo_color_botton:hover{
+    background-color: #6d6b6b3f;
+}
+
+.combo_color_botton:hover{
+    cursor: pointer;
+}
+
+.costomize_color_controler{
+    background-color: #d1d1d163;
+    height: 300px;
+    border-radius: 20px;
+    display: none;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 80%;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    margin: 20px 500px 0px 70px ;
+}
+
+.Hex_input > input{
+    background-color: transparent;
+    border-radius: 20px;
+    width: 35%;
+    margin-left: 15px;
+    border-style: solid;
+    border-color: #2B7A78;
+    animation-name: bordercolor_animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.error_cercle1{
+    background-color: red;
+    color: red;
+    margin-left: 20px;
+    height: 2px;
+    width: 120px;
+    border-radius: 90px;
+    display: none;
+    animation-name: cercleerror_animation;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.error_cercle2{
+    background-color: red;
+    color: red;
+    margin-left: 20px;
+    height: 2px;
+    width: 120px;
+    display: none;
+    border-radius: 90px;
+    animation-name: cercleerror_animation;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.costomize_color_input > input{
+    background-color: transparent;
+    height: 70px;
+    width: 90px;
+    border-radius: 10px;
+    border-width: 4px;
+    margin-left: 15px;
+    border-style: solid;
+    border-color: #2B7A78;
+    animation-name: bordercolor_animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.costomize_color_input > input:hover{
+    cursor: pointer;
+}
+
+.BackGround_text{
+    display: block;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-top: 5px;
+}
+
+.Elements_text{
+    display: none;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-top: 5px;
+}
+
+.Textcolor_text{
+    display: none;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-top: 5px;
+}
+
+.botton_input{
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+.next_botton{
+    background-color: transparent;
+    height: 70px;
+    border-radius: 8px 0px 0px 8px;
+    display: block;
+    animation-name: bordercolor_animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.next_botton:hover{
+    cursor: pointer;
+}
+
+.costomize_Accept_Button{
+    border-radius: 10px;
+    display: none;
+}
+
+@keyframes cercle1_animation {
+    from{
+        top: 25%;
+    }to{
+        top: 26%;
+    }
+}
+
+@keyframes cercle2_animation {
+    from{
+        top: 35%;
+    }to{
+        top: 36%;
+    }
+}
+
+@keyframes cercle3_animation {
+    from{
+        top: 55.5%;
+    }to{
+        top: 56.5%;
+    }
+}
+
+@keyframes cercle4_animation {
+    from{
+        top: 22%;
+    }to{
+        top: 23%;
+    }
+}
+
+@keyframes bordercolor_animation {
+    0%{
+        border-color: #DEF2F1;
+    }25%{
+        border-color: #9a7787;
+    }50%{
+        border-color: #3AAFA9;
+    }100%{
+        border-color: #DEF2F1;
+    }
+}
+
+@keyframes cercleerror_animation {
+    0%{
+        background-color: red;
+        color: red;
+    }50%{
+        background-color: rgba(255, 0, 0, 0.185);
+        color: rgba(255, 0, 0, 0.185);
+    }100%{
+        background-color: red;
+        color: red;
+    }
+}
+
+@media only screen and (max-width: 717px) and (min-widht: 500px){
+    .fox_icon{
+        margin-right: 40%;
+        margin-left: 32%;
+    }
+
+    h1{
+        margin-left: 32%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .costomize_tools_controler{
+        transition:border-radius 1s;
+        border-radius: 0px 70px 70px 0px;
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .combo_color_div1{
+        margin-left: 0px;
+        scale: 0.8;
+        transition: scale 0.5s;
+    }
+    
+    .combo_color_div1:hover{
+        scale: 0.85;
+        cursor: pointer;
+    }
+
+    .combo_color_div2{
+        margin-left: 0px;
+        scale: 0.8;
+        transition: scale 0.5s;
+    }
+    
+    .combo_color_div2:hover{
+        scale: 0.85;
+        cursor: pointer;
+    }
+
+    .combo_color_div3{
+        margin-left: 0px;
+        scale: 0.8;
+        transition: scale 0.5s;
+    }
+    
+    .combo_color_div3:hover{
+        scale: 0.85;
+        cursor: pointer;
+    }
+}

@@ -5,70 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
-    <link rel="stylesheet"  media="screen and (min-width: 1075px)" href="./Css/Css_Costomize/Coordinate_System(Costomize1).css">
-    <link rel="stylesheet"  media="screen and (max-width: 1075px) and (min-width: 982px)" href="./Css/Css_Costomize/Coordinate_System(Costomize1.5).css">
-    <link rel="stylesheet"  media="screen and (max-width: 982px) and (min-width: 944px)" href="./Css/Css_Costomize/Coordinate_System(Costomize2).css">
-    <link rel="stylesheet"  media="screen and (max-width: 944px) and (min-width : 780px)" href="./Css/Css_Costomize/Coordinate_System(Costomize3).css">
-    <link rel="stylesheet"  media="screen and (max-width: 780px) and (min-width : 730px)" href="./Css/Css_Costomize/Coordinate_System(Costomize4).css">
-    <link rel="stylesheet"  media="screen and (max-width: 730px) and (min-width : 550px)" href="./Css/Css_Costomize/Coordinate_System(Costomize5).css">
-    <link rel="stylesheet"  media="screen and (max-width: 550px) and (min-width : 0px)" href="./Css/Css_Costomize/Coordinate_System(Costomize6).css">
+    <link rel="stylesheet"  media="screen and (max-width: 2560px) and (min-width : 425px)" href="./Css/Css_Costomize/Coordinate_System(PcAndLaptop).css">
+    <link rel="stylesheet"  media="screen and (max-width: 425px) and (min-width : 0px)" href="./Css/Css_Costomize/Coordinate_System(Mobile).css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <link rel="icon" href="./Css/Imgs/CoordinateIcon.png">
     <title>Study Of Fox</title>
 </head>
-<body>
+<body id="body">
+
+<div>
+    <div class="babel_1" id="babel_1"></div>
+    <div class="babel_2" id="babel_2"></div>
+    <div class="cercle_1" id="cercle_1"></div>
+    <div class="cercle_2" id="cercle_2"></div>
+    <div class="cercle_3" id="cercle_3"></div>
+    <div class="cercle_4" id="cercle_4"></div>
+</div>
+
+<div class="content">
+
+    <h2>Study Of <span>FOX</span></h2>
+
+    <div class="costomize_main_div" id="costomize_main_div">
+        <div class="costomize_main">
+            <img class="fox_icon" src="./Css/Imgs/fox icon.png" alt="ERROR in costomize photo">
+            <h1 id="text_h1">Costomize Page</h1>
+        </div>
+    </div>
+
+    <div class="costomize_tools_controler" id="costomize_tools_controler">
+    <div class="combo_color_divs">
+        <div class="combo_color_div1" id="combo_color_div1">
+            <span class="first_color">first color</span>
+            <span class="second_color">second color</span>
+            <span class="third_color">third color</span>
+        </div>
+        <div class="combo_color_div2" id="combo_color_div2">
+            <span class="first_color2">first color</span>
+            <span class="second_color2">second color</span>
+            <span class="third_color2">third color</span>
+        </div>
+        <div class="combo_color_div3" id="combo_color_div3">
+            <span class="first_color3">first color</span>
+            <span class="second_color3">second color</span>
+            <span class="third_color3">third color</span>
+        </div>  
+    </div>
+        <input class="combo_color_botton" id="combo_color_botton" type="button" value="Accept" >
+    </div>
+
+    <div class="costomize_color_controler" id="costomize_color_controler">
+        <h1 class="BackGround_text" id="BackGround_text">BackGround Color</h1>
+        <h1 class="Elements_text" id="Elements_text">Elements Color</h1>
+        <h1 class="Textcolor_text" id="Textcolor_text">Text Color</h1>
+        <div class="costomize_color_inputs">
+            <div class="Hex_input">
+                <h3>Hex Code</h3>
+                <input id="Hex_input" type="text" placeholder="Hex color code">
+                <span class="error_cercle1" id="error_cercle1"></span>
+            </div>
+            <div class="costomize_color_input">
+                <h3>Costomize Color</h3>
+                <input id="costomize_color_input" type="color" name="" id="">
+                <span class="error_cercle2" id="error_cercle2"></span>
+            </div>
+        </div>
+        <div class="botton_input">
+            <input class="next_botton" id="next_botton" type="button" value="Next">
+        </div>
+    </div>
+
     
-    <div class="Square" id="Square">
-        <h1 class="text_550px" id="text_550px">Costomize Your WebPage</h1>
+    <div class="costomize_tools">
+        <img class="Accept_Button" id="Accept_Button" src="./Css/Imgs/pack_icon.png" alt="error img1">
+        <img class="Not_Accept_Button" id="Not_Accept_Button" src="./Css/Imgs/color_costomize_icon.png" alt="erorr img2">
+        <img  src="./Css/Imgs/elements_costomize.png" alt="erorr img2">
     </div>
+</div>
 
-    <div>
-        <h1 class="text_0" id="text_0">Costomize Your WebPage</h1>
-        <img class="Costomize_Photo" src="./Css/Imgs/Costomize_Photo.png" alt="ERROR in costomize photo">
-    </div>
-
-    <div>
-        <h4 class="text_1" id="text_1">We have a ready-made color combination. Would you like to see it?</h4>
-        <input class="Accept_Button" id="Accept_Button" type="button" value="Yes">
-        <input class="Not_Accept_Button" id="Not_Accept_Button" type="button" value="No">
-    </div>
-
-    <div>
-        <div class="Packs" id="Packs">
-                <div class="cercle_1"></div>
-                <div class="cercle_2"></div>
-                <div class="cercle_3"></div>
-
-                <div class="cercle_4"></div>
-                <div class="cercle_5"></div>
-                <div class="cercle_6"></div>
-
-
-                <div class="cercle_7"></div>
-                <div class="cercle_8"></div>
-                <div class="cercle_9"></div>
-
-                <div class="Pack_1" id="Pack_1"></div>
-                <div class="Pack_2" id="Pack_2"></div>
-                <div class="Pack_3" id="Pack_3"></div>
-        </div>
-
-        <div>
-            <h4 class="text_2" id="text_2">Do you want to pick your WebPage colors by yourself ?</h4>
-            <input class="Accept_Button_2" id="Accept_Button_2" type="button" value="Yes">
-
-            <label for="First_Color" class="First_Color_Label" id="First_Color_Label">First_Color : </label>
-            <input type="color" name="First_Color" class="First_Color_Input" id="First_Color_Input">
-
-            <label for="Second_Color" class="Second_Color_Label" id="Second_Color_Label">Second_Color : </label>
-            <input type="color" name="Second_Color" class="Second_Color_Input" id="Second_Color_Input">
-
-            <label for="Text_Color" class="Text_Color_Label" id="Text_Color_Label">Text_Color : </label>
-            <input type="color" name="Text_Color" class="Text_Color_Input" id="Text_Color_Input">
-
-            <input class="Start_Button" id="Start_Button" type="submit" value="Start">
-        </div>
-    </div>
 
 
 

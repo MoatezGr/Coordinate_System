@@ -15,6 +15,7 @@
         const Bar_Zone = document.getElementById("Bar_Zone")
         const Bar_Timer = document.getElementById("Bar_Timer")
         const Bar_Coordinate = document.getElementById("Bar_Coordinate")
+        const Meteor_div = document.getElementById("Meteor_div")
         
                                 //-------------Var-------------//
         localStorage.setItem("First_Point", "1")
@@ -48,6 +49,31 @@
         Diagonal_Obj = {}
         Study_Time_Spend = {}
                                 //?-------------Functions-------------//
+        function Meteor_Animation(){
+            setInterval(() => {
+                let Random_top_potsion =  Math.floor((Math.random() * 100));
+                let Random_Delay =  Math.floor((Math.random() * 7) + 2);
+                let Meteor = document.createElement("div")
+
+                Meteor.style.position = "absolute"
+                Meteor.style.background = "white"
+                Meteor.style.height = "5px"
+                Meteor.style.width = "5px"
+                Meteor.style.left = "-20px"
+                Meteor.style.top = Random_top_potsion + "%"
+                Meteor.style.borderRadius = "90px"
+                
+
+                Meteor.style.animationDuration = "4s"
+                Meteor.style.animationDelay = Random_Delay + "s"
+                Meteor.style.animationDirection = "alternate"
+                Meteor.style.animationFillMode = "forwards"
+                Meteor.style.animationName = "Meteor_Animation"
+                Meteor_div.appendChild(Meteor)
+
+   
+            }, 100);
+        }
         function Display_Study_Result() {
                 Study_Result()
 
@@ -400,7 +426,8 @@
 
                                 //?-------------CODE-------------//
 
-                        //!Recovery The Last Coordanate Systeme//                    
+                        //!Recovery The Last Coordanate Systeme//   
+    Meteor_Animation()                 
     Recover_WebPage_Colors()
     Create_Coordinate_System_Plan()
     Something_In_Diagonal_Function()

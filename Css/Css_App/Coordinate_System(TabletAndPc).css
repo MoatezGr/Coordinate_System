@@ -4,6 +4,7 @@
 }
 
 html{
+    overflow: hidden;
     height: 100%;
     width: 100%;
 }
@@ -156,6 +157,15 @@ body{
 }
 
                     /*! Third Zone */
+
+@keyframes Meteor_Animation{
+  from{
+    left: -50px;
+  }to{
+    left: 99%;
+    visibility: hidden;
+  }
+}
 
 @keyframes TimeOut_Animation{
     from{

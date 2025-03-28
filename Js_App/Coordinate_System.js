@@ -2,33 +2,37 @@
         let Plan_div = document.getElementById("Plan_div")
         let Study_Timer = document.getElementById("Study_Timer")
         let Study_Timer_sec = document.getElementById("Study_Timer_sec")
-        let button_finish = document.getElementById("button_finish")
-        let button_start = document.getElementById("button_start")
-        let TimeOut = document.getElementById("TimeOut")
-        let Reset_button = document.getElementById("Reset_button")
         let Study_Final_Result = document.getElementById("Study_Final_Result")
         let Rate = document.getElementById("Rate")
         let Title_Of_Second_Zone = document.getElementById("Title_Of_Second_Zone")
+        let First_Zone = document.getElementById("First_Zone")
         let Second_Zone = document.getElementById("Second_Zone")
         let Title_Of_Third_Zone = document.getElementById("Title_Of_Third_Zone")
         let Soon_Second_Zone = document.getElementById("Soon_Second_Zone")
         let Loading = document.getElementById("Loading")
+        let Timer_div = document.getElementById("Timer_div")
+        let line = document.getElementById("line")
+        const Bar_Zone = document.getElementById("Bar_Zone")
+        const Bar_Timer = document.getElementById("Bar_Timer")
+        const Bar_Coordinate = document.getElementById("Bar_Coordinate")
         
                                 //-------------Var-------------//
         localStorage.setItem("First_Point", "1")
         let First_Point = parseInt(localStorage.getItem("First_Point"))
 
         let Something_In_Diagonal = false
-        let Timer_Mode = false
+        let Timer_Mode = true
+        let rate_mode = true
+        let loaded_mode = false
         let Total_Study_Hours = 0;
-        let Multiply_Numbers = 28;
+        let Multiply_Numbers = 48;
         let c = 0
         let rc = 0
         let i = 0
         let days = 0
         let sec = 0
-        let min = 20
-        let hours = 3
+        let min = 30
+        let hours = 2
         let minute ;
         let IntervalID;
         let IntervalID2;
@@ -45,20 +49,13 @@
         Study_Time_Spend = {}
                                 //?-------------Functions-------------//
         function Display_Study_Result() {
-            if(days >= 7){
-                Loading.style.borderTopColor = localStorage.getItem("Second_Color")
-                Loading.style.animationName = "TimeOut_Animation"
-                Loading.style.animationPlayState = "stop"
-                Loading.style.display = "none"
                 Study_Result()
-                console.warn("This is your coordinate systeme for this week");
 
                 clearInterval(IntervalID4)
-            }
         }
         function Recover_Line_Color_By_MouseLeave() {
             for (let i = 0; i <= 7; i++) {
-                document.getElementById("Line" + i).style.backgroundColor = localStorage.getItem("Second_Color")
+                document.getElementById("Line" + i).style.backgroundColor = localStorage.getItem("element_color")
             }
         }
         function Line_Color_animation() {
@@ -82,21 +79,20 @@
             }
 
         }
-        function Study_Result() {
-            for (let i = 1; i <= 7; i++) {
-                minute = JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + i] - (parseInt(JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + i])) 
+        function Study_Result() {  
+                minute = JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + (i+1)] - (parseInt(JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + (i+1)])) 
                 console.log(minute);
                 console.log(Total_Study_Hours);
                 console.log(parseInt(minute) * 60);
                 
-                
-                    
                     let Study_Result_Elements = document.createElement("p")
-                    Study_Result_Elements.innerHTML = `--> Day ${i}, you study for : ${parseInt(JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + i])} h : ${parseInt(minute * 60)} m`
+                    Study_Result_Elements.innerHTML = `--> Day ${i + 1}, you study for : ${parseInt(JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + (i+1)])} h : ${parseInt(minute * 60)} m`
                     Study_Result_Elements.style.marginTop = "10px"
-                    Study_Result_Elements.style.color = localStorage.getItem("Text_Color")
+                    Study_Result_Elements.style.color = localStorage.getItem("text_color")
                     Study_Final_Result.appendChild(Study_Result_Elements)
-                    
+                if (days == 6 && rate_mode == true) {
+        
+                    rate_mode = false
                     if (i == 1) {
                         Total_Study_Hours = parseFloat(Study_Time_Spend["study_time_spend" + i])
                         console.log(`the typeof total_study_hours is ${typeof(Total_Study_Hours)} First`);
@@ -105,7 +101,7 @@
                         Total_Study_Hours += parseFloat(Study_Time_Spend["study_time_spend" + i])
                         console.log(`the typeof total_study_hours is ${typeof(Total_Study_Hours)} Second`);
                     }
-            }
+            
 
             if (Total_Study_Hours <= 1.75) {
                 let Rate_Element = document.createElement("h1")
@@ -113,7 +109,7 @@
                 Rate_Element.style.height = "auto"
                 Rate_Element.style.marginLeft = "20px"
                 Rate_Element.style.marginTop = "13px"
-                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.style.color = localStorage.getItem("element_color") 
                 Rate_Element.innerHTML = "Week"
                 Rate.appendChild(Rate_Element)
             }else if (Total_Study_Hours <= 3.5 && Total_Study_Hours >= 1.75) {
@@ -122,7 +118,7 @@
                 Rate_Element.style.height = "auto"
                 Rate_Element.style.marginLeft = "20px"
                 Rate_Element.style.marginTop = "13px"
-                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.style.color = localStorage.getItem("element_color") 
                 Rate_Element.innerHTML = "Close to average"
                 Rate.appendChild(Rate_Element)
             }else if (Total_Study_Hours <= 7 && Total_Study_Hours >= 3.5) {
@@ -131,7 +127,7 @@
                 Rate_Element.style.height = "auto"
                 Rate_Element.style.marginLeft = "20px"
                 Rate_Element.style.marginTop = "13px"
-                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.style.color = localStorage.getItem("element_color") 
                 Rate_Element.innerHTML = "Average"
                 Rate.appendChild(Rate_Element)
             }else if (Total_Study_Hours <= 14 && Total_Study_Hours >= 7) {
@@ -140,7 +136,7 @@
                 Rate_Element.style.height = "auto"
                 Rate_Element.style.marginLeft = "20px"
                 Rate_Element.style.marginTop = "13px"
-                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.style.color = localStorage.getItem("element_color") 
                 Rate_Element.innerHTML = "Nice"
                 Rate.appendChild(Rate_Element)
             }else if (Total_Study_Hours <= 21 && Total_Study_Hours >= 14) {
@@ -149,7 +145,7 @@
                 Rate_Element.style.height = "auto"
                 Rate_Element.style.marginLeft = "20px"
                 Rate_Element.style.marginTop = "13px"
-                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.style.color = localStorage.getItem("element_color") 
                 Rate_Element.innerHTML = "Excellent"
                 Rate.appendChild(Rate_Element)
             }else if (Total_Study_Hours <= 28 && Total_Study_Hours >= 21) {
@@ -158,7 +154,7 @@
                 Rate_Element.style.height = "auto"
                 Rate_Element.style.marginLeft = "20px"
                 Rate_Element.style.marginTop = "13px"
-                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.style.color = localStorage.getItem("element_color") 
                 Rate_Element.innerHTML = "Very hardworking"
                 Rate.appendChild(Rate_Element)
             }else if(Total_Study_Hours > 28){
@@ -167,25 +163,119 @@
                 Rate_Element.style.height = "auto"
                 Rate_Element.style.marginLeft = "20px"
                 Rate_Element.style.marginTop = "13px"
-                Rate_Element.style.color = localStorage.getItem("Second_Color") 
+                Rate_Element.style.color = localStorage.getItem("element_color") 
                 Rate_Element.innerHTML = "WoW!! Very hardworking"
                 Rate.appendChild(Rate_Element)
             }
 
             console.log(Total_Study_Hours);
+            }
+        }
+        function Study_Result_Load() {
+                for (let j = 1; j <= Object.values(JSON.parse(localStorage.getItem("study_time_spend"))).length ; j++) {
+                    minute = JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + j] - (parseInt(JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + j])) 
+                    console.log(minute);
+                    console.log(Total_Study_Hours);
+                    console.log(parseInt(minute) * 60);
+                    
+                        let Study_Result_Elements = document.createElement("p")
+                        Study_Result_Elements.innerHTML = `--> Day ${j}, you study for : ${parseInt(JSON.parse(localStorage.getItem("study_time_spend"))["study_time_spend" + j])} h : ${parseInt(minute * 60)} m`
+                        Study_Result_Elements.style.marginTop = "10px"
+                        Study_Result_Elements.style.color = localStorage.getItem("text_color")
+                        Study_Final_Result.appendChild(Study_Result_Elements)
+                    if (days >= 6 && rate_mode == true) {
             
+                        rate_mode = false
+                        if (j == 1) {
+                            Total_Study_Hours = parseFloat(Study_Time_Spend["study_time_spend" + i])
+                            console.log(`the typeof total_study_hours is ${typeof(Total_Study_Hours)} First`);
+                            
+                        }else{
+                            Total_Study_Hours += parseFloat(Study_Time_Spend["study_time_spend" + i])
+                            console.log(`the typeof total_study_hours is ${typeof(Total_Study_Hours)} Second`);
+                        }
+                
+    
+                if (Total_Study_Hours <= 1.75) {
+                    let Rate_Element = document.createElement("h1")
+                    Rate_Element.style.width = "auto"
+                    Rate_Element.style.height = "auto"
+                    Rate_Element.style.marginLeft = "20px"
+                    Rate_Element.style.marginTop = "13px"
+                    Rate_Element.style.color = localStorage.getItem("element_color") 
+                    Rate_Element.innerHTML = "Week"
+                    Rate.appendChild(Rate_Element)
+                }else if (Total_Study_Hours <= 3.5 && Total_Study_Hours >= 1.75) {
+                    let Rate_Element = document.createElement("h1")
+                    Rate_Element.style.width = "auto"
+                    Rate_Element.style.height = "auto"
+                    Rate_Element.style.marginLeft = "20px"
+                    Rate_Element.style.marginTop = "13px"
+                    Rate_Element.style.color = localStorage.getItem("element_color") 
+                    Rate_Element.innerHTML = "Close to average"
+                    Rate.appendChild(Rate_Element)
+                }else if (Total_Study_Hours <= 7 && Total_Study_Hours >= 3.5) {
+                    let Rate_Element = document.createElement("h1")
+                    Rate_Element.style.width = "auto"
+                    Rate_Element.style.height = "auto"
+                    Rate_Element.style.marginLeft = "20px"
+                    Rate_Element.style.marginTop = "13px"
+                    Rate_Element.style.color = localStorage.getItem("element_color") 
+                    Rate_Element.innerHTML = "Average"
+                    Rate.appendChild(Rate_Element)
+                }else if (Total_Study_Hours <= 14 && Total_Study_Hours >= 7) {
+                    let Rate_Element = document.createElement("h1")
+                    Rate_Element.style.width = "auto"
+                    Rate_Element.style.height = "auto"
+                    Rate_Element.style.marginLeft = "20px"
+                    Rate_Element.style.marginTop = "13px"
+                    Rate_Element.style.color = localStorage.getItem("element_color") 
+                    Rate_Element.innerHTML = "Nice"
+                    Rate.appendChild(Rate_Element)
+                }else if (Total_Study_Hours <= 21 && Total_Study_Hours >= 14) {
+                    let Rate_Element = document.createElement("h1")
+                    Rate_Element.style.width = "auto"
+                    Rate_Element.style.height = "auto"
+                    Rate_Element.style.marginLeft = "20px"
+                    Rate_Element.style.marginTop = "13px"
+                    Rate_Element.style.color = localStorage.getItem("element_color") 
+                    Rate_Element.innerHTML = "Excellent"
+                    Rate.appendChild(Rate_Element)
+                }else if (Total_Study_Hours <= 28 && Total_Study_Hours >= 21) {
+                    let Rate_Element = document.createElement("h1")
+                    Rate_Element.style.width = "auto"
+                    Rate_Element.style.height = "auto"
+                    Rate_Element.style.marginLeft = "20px"
+                    Rate_Element.style.marginTop = "13px"
+                    Rate_Element.style.color = localStorage.getItem("element_color") 
+                    Rate_Element.innerHTML = "Very hardworking"
+                    Rate.appendChild(Rate_Element)
+                }else if(Total_Study_Hours > 28){
+                    let Rate_Element = document.createElement("h1")
+                    Rate_Element.style.width = "auto"
+                    Rate_Element.style.height = "auto"
+                    Rate_Element.style.marginLeft = "20px"
+                    Rate_Element.style.marginTop = "13px"
+                    Rate_Element.style.color = localStorage.getItem("element_color") 
+                    Rate_Element.innerHTML = "WoW!! Very hardworking"
+                    Rate.appendChild(Rate_Element)
+                }
+    
+                console.log(Total_Study_Hours);
+                }
+                
+            }
         }
         function Recover_WebPage_Colors() {
-            document.body.style.background = localStorage.getItem("First_Color")
-            Title_Of_Second_Zone.style.color = localStorage.getItem("Text_Color")
-            Title_Of_Third_Zone.style.color = localStorage.getItem("Text_Color")
-            Soon_Second_Zone.style.color = localStorage.getItem("Text_Color")
+            document.body.style.backgroundImage = `linear-gradient(70deg , ${localStorage.getItem("element_color")} , ${localStorage.getItem("background_color")})`
+            Study_Timer.style.backgroundColor = localStorage.getItem("element_color")
+            Bar_Zone.style.backgroundColor = localStorage.getItem("text_color")
         }
         function Create_Coordinate_System_Plan() {
             for (let p = 1; p <= 7; p++) {
                 let Plan_Vertical = document.createElement("div")
                 Plan_Vertical.style.position = "absolute"
-                Plan_Vertical.style.background = localStorage.getItem("Second_Color")
+                Plan_Vertical.style.background = localStorage.getItem("text_color")
                 Plan_Vertical.style.left = (Multiply_Numbers * p) + "px"
                 Plan_Vertical.style.bottom = "0px"
                 Plan_Vertical.style.height = Multiply_Numbers * 8 + "px"
@@ -194,7 +284,7 @@
 
                 let Plan_Horizontal =  document.createElement("div")
                 Plan_Horizontal.style.position = "absolute"
-                Plan_Horizontal.style.background = localStorage.getItem("Second_Color")
+                Plan_Horizontal.style.background = localStorage.getItem("text_color")
                 Plan_Horizontal.style.left = "0px"
                 Plan_Horizontal.style.bottom = (Multiply_Numbers * p) + "px"
                 Plan_Horizontal.style.height = "0.1px"
@@ -203,7 +293,6 @@
             }
         }
         function Study_Timer_Function() {
-                if (Timer_Mode === true) {
                 if (sec < 60) {
                     sec += 1
                 }
@@ -215,10 +304,9 @@
                     hours += 1
                     min = 0
                 }
-            }
 
-                Study_Timer.style.color = localStorage.getItem("Text_Color")
-                Study_Timer_sec.style.color = localStorage.getItem("Text_Color")
+                Study_Timer.style.color = localStorage.getItem("text_color")
+                Study_Timer_sec.style.color = localStorage.getItem("text_color")
                 Study_Timer.innerHTML =  hours + " h : " + min + " m"
                 Study_Timer_sec.innerHTML = sec + " s"
             
@@ -291,18 +379,18 @@
         console.log(`ST value = ${ST[i]}`);
 
 
-                            //*Add Img To Html With Property*// 
+                            //*Add Div To Html With Property*// 
         var lineElement = document.createElement("div");
-        lineElement.style.backgroundColor = localStorage.getItem("Second_Color")
+        lineElement.style.backgroundColor = localStorage.getItem("text_color")
         lineElement.style.height = "3px"
         lineElement.style.width = "3px"
         lineElement.style.borderRadius = "90px" 
         lineElement.style.position = "absolute";
         lineElement.style.transformOrigin = "bottom left"
         lineElement.id = "Line" + i
-        document.body.appendChild(lineElement)
+        line.appendChild(lineElement)
 
-                            //*Styling The New Img by Id*//
+                            //*Styling The New Div by Id*//
         document.getElementById("Line" + i).style.left = (days * Multiply_Numbers)  + "px"
         console.log(`The left Position is: ${document.getElementById("Line" + i).style.left}`);
         document.getElementById("Line" + i).style.bottom = (ST[i] * Multiply_Numbers) + "px"
@@ -316,31 +404,24 @@
     Recover_WebPage_Colors()
     Create_Coordinate_System_Plan()
     Something_In_Diagonal_Function()
-
-    window.onload = function () {
-        if (days >= 7) {
-            Loading.style.borderTopColor = localStorage.getItem("Second_Color")
-            Loading.style.animationName = "TimeOut_Animation"
-            Loading.style.animationPlayState = "running"
-            Loading.style.display = "block"
-        }
-    }
     
-    IntervalID4 = setInterval(() => {Display_Study_Result()}, 2000);
+    //IntervalID4 = setInterval(() => {Display_Study_Result()}, 2000);
 
 if (Something_In_Diagonal === true) {
+    Study_Result_Load()
+
     for (let j = 0; j <= Object.values(JSON.parse(localStorage.getItem("Diagonal"))).length; j++) {
         console.log(`The j of The loop is : ${j}`);
         //----------------------LOOP------------------------
         var lineElement = document.createElement("div");
-        lineElement.style.backgroundColor = localStorage.getItem("Second_Color")
+        lineElement.style.backgroundColor = localStorage.getItem("text_color")
         lineElement.style.height = "3px"
         lineElement.style.width = "3px"
         lineElement.style.borderRadius = "90px" 
         lineElement.style.position = "absolute";
         lineElement.style.transformOrigin = "bottom left"
         lineElement.id = "Line" + j
-        document.body.appendChild(lineElement)
+        line.appendChild(lineElement)
 
         ST = JSON.parse(localStorage.getItem("ST"))
         console.log(JSON.parse(localStorage.getItem("ST")));
@@ -413,20 +494,18 @@ if (Something_In_Diagonal === true) {
 }
 
                         //!Code for Create An Coordinate System//
-    console.log(days);
-                        
-             
+      
     if (i === 0) {
                         //*Add Img To Html With Property*// 
         var lineElement = document.createElement("div");
-        lineElement.style.backgroundColor = localStorage.getItem("Second_Color")
+        lineElement.style.backgroundColor = localStorage.getItem("text_color")
         lineElement.style.height = "3px"
         lineElement.style.width = "3px"
         lineElement.style.borderRadius = "90px" 
         lineElement.style.position = "absolute";
         lineElement.style.transformOrigin = "bottom left"
         lineElement.id = "Line" + i
-        document.body.appendChild(lineElement)
+        line.appendChild(lineElement)
 
                         //*Styling The New Img by Id*//
         document.getElementById("Line" + i).style.left = 0
@@ -439,49 +518,33 @@ if (Something_In_Diagonal === true) {
         Coordinate["Line" + i + "y"] = 0 
         }
 
-    button_start.onclick = function () {
-        
-        if (days < 7) {
-            IntervalID = setInterval(() => {Study_Timer_Function()}, 1000)
-        
-            Timer_Mode = true
-            button_finish.style.display = "block"
-            button_start.style.display = "none"
-            TimeOut.style.borderTopColor = localStorage.getItem("Second_Color")
-            TimeOut.style.animationName = "TimeOut_Animation"
-            TimeOut.style.animationPlayState = "running"
-            TimeOut.style.display = "block"
-        }
-    }
 
-    button_finish.onclick = function () {
-            Timer_Mode = false
-            TimeOut.style.animationPlayState = "stop"
-            TimeOut.style.display = "none"
-            button_finish.style.display = "none"
-            button_start.style.display = "block"
-            
-
+    Timer_div.onclick = function () {
+        if (Timer_Mode == false) {
             Study_Time_Spend["study_time_spend" + (i + 1)] = parseFloat(hours + (min / 60)).toFixed(2)
             localStorage.setItem("study_time_spend",JSON.stringify(Study_Time_Spend))               
             
             Study_Time_Result = parseFloat(hours + (min / 60)).toFixed(2)
+            Study_Result()
             Create_New_Point()
             Calcul_Distance_And_Angle()
 
-            if (days >= 7) {
-                Loading.style.borderTopColor = localStorage.getItem("Second_Color")
-                Loading.style.animationName = "TimeOut_Animation"
-                Loading.style.animationPlayState = "running"
-                Loading.style.display = "block"
-            }
-
+            Timer_Mode = true
             sec = 0
             min = 0
             hours = 0
             Study_Timer.innerHTML =  hours + " h : " + min + " m"
             Study_Timer_sec.innerHTML = sec + " s"
             clearInterval(IntervalID)
+        }else if (Timer_Mode == true) {
+            if (days < 7) {
+                console.log("start");
+                
+                IntervalID = setInterval(() => {Study_Timer_Function()}, 1000)     
+                Timer_Mode = false
+            }
+        }
+
     }
 
     Second_Zone.onmouseenter = function () {
@@ -498,5 +561,28 @@ if (Something_In_Diagonal === true) {
             Recover_Line_Color_By_MouseLeave() 
         }
     }
-console.log(days);
+
+    Bar_Zone.onmouseenter = function () {
+        console.log("mouse In");
+        Bar_Zone.style.animationName = "Bar_Open_Animation"
+        Bar_Timer.style.display = "block"
+        Bar_Coordinate.style.display = "block"
+    }
+
+    Bar_Zone.onmouseleave = function () {
+        Bar_Zone.style.animationName = "Bar_Close_Animation"
+        Bar_Timer.style.display = "none"
+        Bar_Coordinate.style.display = "none"
+    }
+
+    Bar_Timer.onclick = function () {
+        First_Zone.style.display = "grid"
+        Second_Zone.style.display = "none"
+    }
+
+    Bar_Coordinate.onclick = function () {
+        Second_Zone.style.display = "grid"
+        line.style.display = "block"
+        First_Zone.style.display = "none"
+    }
 
